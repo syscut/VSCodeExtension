@@ -1,0 +1,157 @@
+{
+  "name": "demo",
+  "displayName": "崇友插件(測試版)",
+  "description": "崇友插件(測試版)",
+  "version": "0.0.1",
+  "publisher": "gfc",
+  "engines": {
+    "vscode": "^1.65.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "images/gfc.png",
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+			{
+        "id": "wio",
+        "aliases": [
+          "Informix WIO"
+        ],
+        "extensions": [
+          ".wio"
+        ],
+        "configuration": "./configuration/wio.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "wio",
+        "scopeName": "source.wio",
+        "path": "./syntaxes/wio.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "wio",
+        "path": "./snippets/wio.json"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "download4gl",
+          "group": "navigation"
+        },
+        {
+          "command": "upload4gl",
+          "group": "z_commands@1"
+        },
+        {
+          "command": "downloadNewEraHelp",
+          "group": "z_commands@3"
+        },
+        {
+          "command": "uploadNewEraHelp",
+          "group": "z_commands@4"
+        },
+        {
+          "command": "downloadFile3.8",
+          "group": "navigation"
+        },
+        {
+          "command": "uploadFile3.8",
+          "group": "z_commands@2"
+        },
+        {
+          "command": "openWIOPage",
+          "group": "z_commands@5"
+        },
+        {
+          "command": "uploadfrontend",
+          "group": "z_commands@6"
+        },
+        {
+          "command": "logIn",
+          "group": "z_commands@7"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "vscode-plugin-demo01",
+        "properties": {
+          "vscodePluginDemo.showTip": {
+            "type": "boolean",
+            "default": true,
+            "description": "歡迎使用GFC插件"
+          }
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "download4gl",
+        "title": "下載4gl"
+      },
+      {
+        "command": "upload4gl",
+        "title": "上傳4gl至3.1的mistest",
+        "shortTitle": "上傳4gl"
+      },
+      {
+        "command": "downloadNewEraHelp",
+        "title": "下載NewEraHelp"
+      },
+      {
+        "command": "uploadNewEraHelp",
+        "title": "上傳NewEraHelp"
+      },
+      {
+        "command": "downloadFile3.8",
+        "title": "下載3.8/htdocs檔案"
+      },
+      {
+        "command": "uploadFile3.8",
+        "title": "上傳3.8/htdocs檔案"
+      },
+      {
+        "command": "openWIOPage",
+        "title": "開啟WIO編輯頁面"
+      },
+      {
+        "command": "uploadfrontend",
+        "title": "上傳至frontend"
+      },
+      {
+        "command": "logIn",
+        "title": "設定登入3.8和3.1的使用者"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.65.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "14.x",
+    "eslint": "^8.9.0",
+    "glob": "^7.2.0",
+    "mocha": "^9.2.1",
+    "typescript": "^4.5.5",
+    "@vscode/test-electron": "^2.1.2"
+  },
+  "license": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syscut/VSCodeExtension.git"
+  }
+}

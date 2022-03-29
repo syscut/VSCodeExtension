@@ -1,0 +1,491 @@
+{
+    "mivar": {
+        "prefix": "MIVAR",
+        "body": [
+            "<?MIVAR>$1<?/MIVAR>"
+        ],
+        "description": "MIVAR without declare"
+    },
+    "mivar block": {
+        "prefix": "MIVAR MULTILINE",
+        "body": [
+            "<?MIVAR>",
+            "  $1",
+            "<?/MIVAR>"
+        ],
+        "description": "MIVAR multiline block"
+    },
+    "declair mivar": {
+        "prefix": "MIVAR NAME",
+        "body": [
+            "<?MIVAR NAME=$1 ${2:DEFAULT=}>${3:$}<?/MIVAR>"
+        ],
+        "description": "Declare MIVAR variable"
+    },
+    "self mivar": {
+        "prefix": "MIVAR VALUE",
+        "body": [
+            "<?MIVAR NAME=$1${2: DEFAULT=}>$$1<?/MIVAR>"
+        ],
+        "description": "Declare MIVAR variable for accept query paramater"
+    },
+    "miblock": {
+        "prefix": "MIBLOCK",
+        "body": [
+            "<?MIBLOCK>",
+            "  $1",
+            "<?/MIBLOCK>"
+        ],
+        "description": "Simple MIBLOCK"
+    },
+    "miblock cond": {
+        "prefix": "MIBLOCK COND",
+        "body": [
+            "<?MIBLOCK COND=\"$1\">",
+            "  $2",
+            "<?/MIBLOCK>"
+        ],
+        "description": "MIBLOCK with condition"
+    },
+    "miblock loop": {
+        "prefix": "MIBLOCK LOOP",
+        "body": [
+            "<?MIBLOCK INDEX=$1 TO=$2 FROM=$3 ${4:STEP=}>",
+            "  $5",
+            "<?/MIBLOCK>"
+        ],
+        "description": "MIBLOCK with LOOP"
+    },
+    "miblock foreach": {
+        "prefix": "MIBLOCK FOREACH",
+        "body": [
+            "<?MIBLOCK INDEX=$1 FOREACH=$$2>",
+            "  $3",
+            "<?/MIBLOCK>"
+        ],
+        "description": "MIBLOCK with FOREACH"
+    },
+    "miblock while": {
+        "prefix": "MIBLOCK WHILE",
+        "body": [
+            "<?MIBLOCK WHILE=\"$$1\">",
+            "  $2",
+            "<?/MIBLOCK>"
+        ],
+        "description": "MIBLOCK with WHILE"
+    },
+    "mielse": {
+        "prefix": "MIELSE",
+        "body": [
+            "<?MIELSE>",
+            "  $1"
+        ],
+        "description": "MIELSE without contition"
+    },
+    "mielse cond": {
+        "prefix": "MIELSE COND",
+        "body": [
+            "<?MIELSE COND=\"$1\">",
+            "  $2"
+        ],
+        "description": "MIELSE with condition"
+    },
+    "misql": {
+        "prefix": "MISQL",
+        "body": [
+            "<?MISQL SQL=\"$1\"${2: RESULTS=result}${3: COND=$4}>",
+            "  $5",
+            "<?/MISQL>"
+        ],
+        "description": "MISQL block"
+    },
+    "plus": {
+        "prefix": "_",
+        "body": [
+            "$(${1|EQ,NE,IF,AND,SETVAR,SUBSTR,STRFILL|},$$2,$3)"
+        ],
+        "description": "wio function"
+    },
+    "gfc1": {
+        "prefix": "_URLENCODE",
+        "body": [
+            "$(URLENCODE,$1)"
+        ],
+        "description": "$(URLENCODE,string)"
+    },
+    "gfc2": {
+        "prefix": "_VECSIZE",
+        "body": [
+            "$(VECSIZE,$1)"
+        ],
+        "description": "$(VECSIZE,$vec)"
+    },
+    "gfc3": {
+        "prefix": "_VECAPPEND",
+        "body": [
+            "$(VECAPPEND,$1,$2)"
+        ],
+        "description": "$(VECAPPEND,$vec,value)"
+    },
+    "gfc4": {
+        "prefix": "_WEBUNHTML",
+        "body": [
+            "$(WEBUNHTML,$1)"
+        ],
+        "description": "$(WEBUNHTML,string)"
+    },
+    "gfc5": {
+        "prefix": "_XOR",
+        "body": [
+            "$(XOR,$1,$2)"
+        ],
+        "description": "$(XOR,val1,val2,...,valn)"
+    },
+    "gfc6": {
+        "prefix": "_XST",
+        "body": [
+            "$(XST,$1)"
+        ],
+        "description": "$(XST,varname)"
+    },
+    "gfc7": {
+        "prefix": "_SEPARATE",
+        "body": [
+            "$(SEPARATE,$1,$2)"
+        ],
+        "description": "$(SEPARATE,varvector,string)"
+    },
+    "gfc8": {
+        "prefix": "_SETVAR",
+        "body": [
+            "$(SETVAR,$1,$2)"
+        ],
+        "description": "$(SETVAR,varname,value)"
+    },
+    "gfc9": {
+        "prefix": "_STRFILL",
+        "body": [
+            "$(STRFILL,$1,$2)"
+        ],
+        "description": "$(STRFILL,string,ncopies)"
+    },
+    "gfc10": {
+        "prefix": "_STRLEN",
+        "body": [
+            "$(STRLEN,$1)"
+        ],
+        "description": "$(STRLEN,string)"
+    },
+    "gfc11": {
+        "prefix": "_SUBSTR",
+        "body": [
+            "$(SUBSTR,$1,$2,$3)"
+        ],
+        "description": "$(SUBSTR,string,start,length)"
+    },
+    "gfc12": {
+        "prefix": "_TRACEMSG",
+        "body": [
+            "$(TRACEMSG,$1)"
+        ],
+        "description": "$(TRACEMSG,string)"
+    },
+    "gfc13": {
+        "prefix": "_TRIM",
+        "body": [
+            "$(TRIM,$1)"
+        ],
+        "description": "$(TRIM,string)"
+    },
+    "gfc14": {
+        "prefix": "_TRUNC",
+        "body": [
+            "$(TRUNC,$1,$2)"
+        ],
+        "description": "$(TRUNC,value,digit)"
+    },
+    "gfc15": {
+        "prefix": "_UNSETVAR",
+        "body": [
+            "$(UNSETVAR,$1)"
+        ],
+        "description": "$(UNSETVAR,varname)"
+    },
+    "gfc16": {
+        "prefix": "_UPPER",
+        "body": [
+            "$(UPPER,$1)"
+        ],
+        "description": "$(UPPER,string)"
+    },
+    "gfc17": {
+        "prefix": "_URLDECODE",
+        "body": [
+            "$(URLDECODE,$1)"
+        ],
+        "description": "$(URLDECODE,string)"
+    },
+    "gfc18": {
+        "prefix": "_NXST",
+        "body": [
+            "$(NXST,$1)"
+        ],
+        "description": "$(NXST,varname)"
+    },
+    "gfc19": {
+        "prefix": "_OR",
+        "body": [
+            "$(OR,$1,$2)"
+        ],
+        "description": "$(OR,val1,val2,...,valn)"
+    },
+    "gfc20": {
+        "prefix": "_PARSE-HTML",
+        "body": [
+            "$(PARSE-HTML,$1)"
+        ],
+        "description": "$(PARSE-HTML,string)"
+    },
+    "gfc21": {
+        "prefix": "_POSITION",
+        "body": [
+            "$(POSITION,$1,$2,$3)"
+        ],
+        "description": "$(POSITION,string1,string2,valn)"
+    },
+    "gfc22": {
+        "prefix": "_REPLACE",
+        "body": [
+            "$(REPLACE,$1,$2,$3)"
+        ],
+        "description": "$(REPLACE,string1,string2,string3)"
+    },
+    "gfc23": {
+        "prefix": "_ROUND",
+        "body": [
+            "$(ROUND,$1,$2)"
+        ],
+        "description": "$(ROUND,value,digit)"
+    },
+    "gfc24": {
+        "prefix": "_NTH",
+        "body": [
+            "$(NTH,$1,$2,$3)"
+        ],
+        "description": "$(NTH,which,arg0,arg1,...,argN)"
+    },
+    "gfc25": {
+        "prefix": "_INDEX",
+        "body": [
+            "$(INDEX,$1,$2)"
+        ],
+        "description": "$(INDEX,which,string)"
+    },
+    "gfc26": {
+        "prefix": "_ISNOVALUE",
+        "body": [
+            "$(ISNOVALUE,$$1)"
+        ],
+        "description": "$(ISNOVALUE,$num)"
+    },
+    "gfc27": {
+        "prefix": "_ISNULL",
+        "body": [
+            "$(ISNULL,$$1)"
+        ],
+        "description": "$(ISNULL,$num)"
+    },
+    "gfc28": {
+        "prefix": "_ISINT",
+        "body": [
+            "$(ISINT,$$1)"
+        ],
+        "description": "$(ISINT,$value)"
+    },
+    "gfc29": {
+        "prefix": "_ISNUM",
+        "body": [
+            "$(ISNUM,$1)"
+        ],
+        "description": "$(ISNUM,value)"
+    },
+    "gfc30": {
+        "prefix": "_LOWER",
+        "body": [
+            "$(LOWER,$1)"
+        ],
+        "description": "$(LOWER,string)"
+    },
+    "gfc31": {
+        "prefix": "_MOD",
+        "body": [
+            "$(MOD,$1,$2)"
+        ],
+        "description": "$(MOD,value1,value2)"
+    },
+    "gfc32": {
+        "prefix": "_NC",
+        "body": [
+            "$(NC,$1,$2)"
+        ],
+        "description": "$(NC,string1,string2)"
+    },
+    "gfc33": {
+        "prefix": "_NE",
+        "body": [
+            "$(NE,$1,$2)"
+        ],
+        "description": "$(NE,string1,string2)"
+    },
+    "gfc34": {
+        "prefix": "_NOT",
+        "body": [
+            "$(NOT,$1)"
+        ],
+        "description": "$(NOT,value)"
+    },
+    "gfc35": {
+        "prefix": "_IF",
+        "body": [
+            "$(IF,$1,$2,$3)"
+        ],
+        "description": "$(IF,expr,dotrue,dofalse)"
+    },
+    "gfc36": {
+        "prefix": "_EC",
+        "body": [
+            "$(EC,$1,$2)"
+        ],
+        "description": "$(EC,string1,string2)"
+    },
+    "gfc37": {
+        "prefix": "_EQ",
+        "body": [
+            "$(EQ,$1,$2)"
+        ],
+        "description": "$(EQ,string1,string2)"
+    },
+    "gfc38": {
+        "prefix": "_EVAL",
+        "body": [
+            "$(EVAL,$$1)"
+        ],
+        "description": "$(EVAL,$varname)"
+    },
+    "gfc39": {
+        "prefix": "_EXIT",
+        "body": [
+            "$(EXIT,$1)"
+        ],
+        "description": "$(EXIT,depth)"
+    },
+    "gfc40": {
+        "prefix": "_FIX",
+        "body": [
+            "$(FIX,$1)"
+        ],
+        "description": "$(FIX,value)"
+    },
+    "gfc41": {
+        "prefix": "_HTTPHEADER",
+        "body": [
+            "$(HTTPHEADER,$1,$2)"
+        ],
+        "description": "$(HTTPHEADER,name,value)"
+    },
+    "gfc42": {
+        "prefix": "_IF",
+        "body": [
+            "$(IF,$1,$2)"
+        ],
+        "description": "$(IF,expr,dotrue)"
+    },
+    "gfc43": {
+        "prefix": "_DEFER",
+        "body": [
+            "$(DEFER,$1,$2,$3)"
+        ],
+        "description": "$(DEFER,udtname,name,val,[name,val]...)"
+    },
+    "gfc44": {
+        "prefix": "_AND",
+        "body": [
+            "$(AND,$1,$2)"
+        ],
+        "description": "$(AND,val1,val2,...,valn)"
+    },
+    "gfc45": {
+        "prefix": "_CONCAT",
+        "body": [
+            "$(CONCAT,$1,$2)"
+        ],
+        "description": "$(CONCAT,arg1,arg2)"
+    },
+    "misql concat dash": {
+        "prefix": "CONCAT DASH",
+        "body": [
+            "||'-'|| "
+        ],
+        "description": "concat dash for MISQL"
+    },
+    "sql and": {
+        "prefix": "AND SQL JOIN",
+        "body": [
+            "AND ${column} = $1${column} $2"
+        ],
+        "description": "SQL join table a and b"
+    },
+    "sql or": {
+        "prefix": "OR SQL JOIN",
+        "body": [
+            "OR ${column} = $1${column} $2"
+        ],
+        "description": "SQL join table a and b"
+    },
+    "sql select": {
+        "prefix": "SELECT SQL",
+        "body": [
+            "SELECT $1 FROM $2 WHERE $3"
+        ],
+        "description": "SQL select"
+    },
+    "misql json comma": {
+        "prefix": "_comma",
+        "body": [
+            "<?MIVAR NAME=comma>${1:,}<?/MIVAR>"
+        ],
+        "description": "comma for wio json"
+    },
+    "misql json object10": {
+        "prefix": "_jo10",
+        "body": [
+            "$comma$left\"$1\": \"$$2\", \"$3\": \"$$4\", \"$5\": \"$$6\", \"$7\": \"$$8\", \"$9\": \"$$10\", \"$11\": \"$$12\", \"$13\": \"$$14\", \"$15\": \"$$16\", \"$17\": \"$$18\", \"$19\": \"$$20\"$right",
+            "<?MIVAR NAME=comma>,<?/MIVAR>"
+        ],
+        "description": "json key value object up to 10"
+    },
+    "misql json object20": {
+        "prefix": "_jo20",
+        "body": [
+            "$comma$left\"$1\": \"$$2\", \"$3\": \"$$4\", \"$5\": \"$$6\", \"$7\": \"$$8\", \"$9\": \"$$10\", \"$11\": \"$$12\", \"$13\": \"$$14\", \"$15\": \"$$16\", \"$17\": \"$$18\", \"$19\": \"$$20\", \"$21\": \"$$22\", \"$23\": \"$$24\", \"$25\": \"$$26\", \"$27\": \"$$28\", \"$29\": \"$$30\", \"$31\": \"$$32\", \"$33\": \"$$34\", \"$35\": \"$$36\", \"$37\": \"$$38\", \"$39\": \"$$40\"$right",
+            "<?MIVAR NAME=comma>,<?/MIVAR>"
+        ],
+        "description": "json key value object up to 20"
+    },
+    "misql json array10": {
+        "prefix": "_ja10",
+        "body": [
+            "$comma [$$1, $$2, $$3, $$4, $$5, $$6, $$7, $$8, $$9, $$10]",
+            "<?MIVAR NAME=comma>,<?/MIVAR>"
+        ],
+        "description": "json array up to 10"
+    },
+    "misql json array20": {
+        "prefix": "_ja20",
+        "body": [
+            "$comma [$$1, $$2, $$3, $$4, $$5, $$6, $$7, $$8, $$9, $$10, $$11, $$12, $$13, $$14, $$15, $$16, $$17, $$18, $$19, $$20]",
+            "<?MIVAR NAME=comma>,<?/MIVAR>"
+        ],
+        "description": "json array up to 20"
+    }
+}
