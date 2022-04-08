@@ -1,7 +1,7 @@
 {
   "name": "demo",
-  "displayName": "崇友插件(測試版)",
-  "description": "崇友插件(測試版)",
+  "displayName": "%displayName%",
+  "description": "%description%",
   "version": "0.0.1",
   "publisher": "gfc",
   "engines": {
